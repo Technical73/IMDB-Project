@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
-import { createActor } from "../Redux/actorSlice";
+import { createActor } from "../../src/Redux/actorSlice";
 import { toast } from "react-toastify";
 
 export const AddActorModal = ({ actorOpen, handleClose }) => {

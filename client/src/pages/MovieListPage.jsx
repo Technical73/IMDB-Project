@@ -18,7 +18,7 @@ import { AddProducerModal } from "../components/AddProducerModal";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import { logoutUser } from "../Redux/authSlice";
+import { logoutUser } from "../../src/Redux/authSlice";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),

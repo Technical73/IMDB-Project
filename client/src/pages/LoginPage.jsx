@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../Redux/authSlice";
+import { loginUser } from "../../src/Redux/authSlice";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({

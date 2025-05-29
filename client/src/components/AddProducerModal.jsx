@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
-import { createProducer } from "../Redux/producerSlice";
+import { createProducer } from "../../src/Redux/producerSlice";
 import { toast } from "react-toastify";
 
 export const AddProducerModal = ({ producerOpen, handleClose }) => {

@@ -17,9 +17,13 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
-import { createMovie, fetchMovies, updateMovie } from "../redux/movieSlice";
-import { fetchProducers } from "../Redux/producerSlice";
-import { fetchActors } from "../Redux/actorSlice";
+import {
+  createMovie,
+  fetchMovies,
+  updateMovie,
+} from "../../src/Redux/movieSlice";
+import { fetchProducers } from "../../src/Redux/producerSlice";
+import { fetchActors } from "../../src/Redux/actorSlice";
 import { toast } from "react-toastify";
 
 export const MovieForm = ({ open, handleClose, selectedMovie }) => {
