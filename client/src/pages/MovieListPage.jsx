@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteMovie, fetchMovies } from "../redux/movieSlice";
+import { deleteMovie, fetchMovies } from "../../src/Redux/movieSlice";
 import MovieCard from "../components/MovieCard";
 import { MovieForm } from "../components/MovieForm";
 import {
