@@ -69,7 +69,7 @@ const logout = async (req, res) => {
   return res.json({ message: "Logged out successfully" });
 };
 
-router.get("/auth/me", (req, res) => {
+const authUser = async (req, res) => {
   const token = req.cookies.token;
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
@@ -79,6 +79,6 @@ router.get("/auth/me", (req, res) => {
   } catch (err) {
     return res.status(401).json({ message: "Invalid token" });
   }
-});
+};
 
-module.exports = { register, login, logout };
+module.exports = { register, login, logout, authUser };
