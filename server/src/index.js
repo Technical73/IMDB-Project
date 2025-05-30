@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://imdb-project-2.onrender.com/",
+    origin: "https://imdbd.netlify.app",
     credentials: true,
   })
 );
