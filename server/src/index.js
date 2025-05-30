@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://your-netlify-site.netlify.app",
+    origin: "https://imdbd.netlify.app",
     credentials: true,
   })
 );
