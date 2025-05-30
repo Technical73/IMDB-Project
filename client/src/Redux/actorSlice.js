@@ -2,18 +2,16 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../axiosConfig";
 
 export const fetchActors = createAsyncThunk("actors/fetchActors", async () => {
-  const response = await api.get("http://localhost:8000/api/actors");
+  const response = await api.get("/actors");
   return response.data.data;
 });
 export const createActor = createAsyncThunk(
   "actors/createActor",
   async (actorData, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/actors",
-        actorData,
-        { withCredentials: true }
-      );
+      const response = await api.post("/actors", actorData, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
