@@ -11,6 +11,6 @@ const authValidate = require("../middlewares/authMiddlewares");
 router.post("/auth/register", register);
 router.post("/auth/login", login);
 router.post("/auth/logout", authValidate, logout);
-router.post("/auth/me", authUser);
+router.get("/auth/me", authUser);
 
 module.exports = router;
