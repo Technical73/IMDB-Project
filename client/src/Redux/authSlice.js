@@ -6,10 +6,7 @@ export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (formData, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/auth/register",
-        formData
-      );
+      const response = await api.post("/auth/register", formData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -24,11 +21,9 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (formData, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/auth/login",
-        formData,
-        { withCredentials: true }
-      );
+      const response = await api.post("/auth/login", formData, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -43,11 +38,9 @@ export const logoutUser = createAsyncThunk(
   "auth/logoutUser",
   async (_, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/auth/logout",
-        null,
-        { withCredentials: true }
-      );
+      const response = await api.post("/auth/logout", null, {
+        withCredentials: true,
+      });
       return response.data.message;
     } catch (error) {
       return thunkAPI.rejectWithValue(

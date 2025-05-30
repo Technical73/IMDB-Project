@@ -4,7 +4,7 @@ import api from "../axiosConfig";
 export const fetchProducers = createAsyncThunk(
   "producers/fetchProducers",
   async () => {
-    const response = await api.get("http://localhost:8000/api/producers");
+    const response = await api.get("/producers");
     return response.data.data;
   }
 );
@@ -13,11 +13,9 @@ export const createProducer = createAsyncThunk(
   "producers/createProducer",
   async (producerData, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/producers",
-        producerData,
-        { withCredentials: true }
-      );
+      const response = await api.post("/producers", producerData, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

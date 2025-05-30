@@ -6,9 +6,7 @@ export const fetchMovies = createAsyncThunk(
   async (searchTerm = "", thunkAPI) => {
     try {
       const response = await api.get(
-        `http://localhost:8000/api/movies?search=${encodeURIComponent(
-          searchTerm
-        )}`,
+        `/movies?search=${encodeURIComponent(searchTerm)}`,
         {
           withCredentials: true,
         }
@@ -26,11 +24,9 @@ export const createMovie = createAsyncThunk(
   "movies/createMovie",
   async (movieData, thunkAPI) => {
     try {
-      const response = await api.post(
-        "http://localhost:8000/api/movies",
-        movieData,
-        { withCredentials: true }
-      );
+      const response = await api.post("/movies", movieData, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -44,11 +40,9 @@ export const updateMovie = createAsyncThunk(
   "movies/updateMovie",
   async ({ id, updatedData }, thunkAPI) => {
     try {
-      const response = await api.put(
-        `http://localhost:8000/api/movies/${id}`,
-        updatedData,
-        { withCredentials: true }
-      );
+      const response = await api.put(`/movies/${id}`, updatedData, {
+        withCredentials: true,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -62,7 +56,7 @@ export const deleteMovie = createAsyncThunk(
   "movies/deleteMovie",
   async (id, thunkAPI) => {
     try {
-      await api.delete(`http://localhost:8000/api/movies/${id}`, {
+      await api.delete(`/movies/${id}`, {
         withCredentials: true,
       });
       return id;
