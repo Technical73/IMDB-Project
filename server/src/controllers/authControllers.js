@@ -69,4 +69,16 @@ const logout = async (req, res) => {
   return res.json({ message: "Logged out successfully" });
 };
 
+router.get("/auth/me", (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return res.status(200).json({ userId: decoded.user_id });
+  } catch (err) {
+    return res.status(401).json({ message: "Invalid token" });
+  }
+});
+
 module.exports = { register, login, logout };
